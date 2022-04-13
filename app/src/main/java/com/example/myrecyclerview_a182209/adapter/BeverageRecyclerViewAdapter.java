@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,13 +48,19 @@ public class BeverageRecyclerViewAdapter extends  RecyclerView.Adapter<BeverageR
 
 
 
-    public class BeverageViewHolder extends RecyclerView.ViewHolder {
+    public class BeverageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView tvBeverageName;
         public ImageView imgViewBeverageImage;
         public BeverageViewHolder(@NonNull View itemView) {
             super(itemView);
             tvBeverageName=itemView.findViewById(R.id.tv_beverages_name);
             imgViewBeverageImage=itemView.findViewById(R.id.img_beverages);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(v.getContext(), "Beverage Name "+ beverageList.get(getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
         }
     }
 }
