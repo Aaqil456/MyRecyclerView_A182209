@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.example.myrecyclerview_a182209.adapter.BeverageRecyclerViewAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
 
         List<Beverage> allBeverageInfo=getAllBeverageInfo();
+        BeverageRecyclerViewAdapter beverageRecyclerViewAdapter = new BeverageRecyclerViewAdapter(MainActivity.this, allBeverageInfo);
+        recyclerView.setAdapter(beverageRecyclerViewAdapter);
     }
 
     private List<Beverage> getAllBeverageInfo() {

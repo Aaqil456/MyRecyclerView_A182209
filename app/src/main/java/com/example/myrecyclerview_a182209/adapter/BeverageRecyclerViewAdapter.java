@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myrecyclerview_a182209.Beverage;
+import com.example.myrecyclerview_a182209.MainActivity;
 import com.example.myrecyclerview_a182209.R;
 
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
 public class BeverageRecyclerViewAdapter extends  RecyclerView.Adapter<BeverageRecyclerViewAdapter.BeverageViewHolder> {
     public List<Beverage> beverageList;
     private Context context;
-    public BeverageRecyclerViewAdapter() {
+    public BeverageRecyclerViewAdapter(Context context, List<Beverage> beverageList) {
         this.context=context;
         this.beverageList=beverageList;
     }
