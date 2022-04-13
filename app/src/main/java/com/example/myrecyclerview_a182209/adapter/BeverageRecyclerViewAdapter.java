@@ -1,6 +1,7 @@
 package com.example.myrecyclerview_a182209.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myrecyclerview_a182209.Beverage;
+import com.example.myrecyclerview_a182209.BeverageDetailActivity;
 import com.example.myrecyclerview_a182209.MainActivity;
 import com.example.myrecyclerview_a182209.R;
 
@@ -61,6 +63,9 @@ public class BeverageRecyclerViewAdapter extends  RecyclerView.Adapter<BeverageR
         @Override
         public void onClick(View v) {
             Toast.makeText(v.getContext(), "Beverage Name "+ beverageList.get(getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(v.getContext(), BeverageDetailActivity.class);
+            intent.putExtra("beverageName",beverageList.get(getAdapterPosition()).getName());
+            v.getContext().startActivity(intent);
         }
     }
 }
